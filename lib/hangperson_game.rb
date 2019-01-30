@@ -16,22 +16,26 @@ class HangpersonGame
   #Take a char as input to method
   def guess(guessed)
     
-	
+    
     # Check if the guessed char is in the word string
     #And the character is not already in the guesses list
-    if @word.include? guessed and !@guesses.include? guessed
-    
+    if @word.include? guessed and !@guesses.include? guessed 
+     
       # Add the guessed char to the guesses list 
       @guesses += guessed
       return true
-      
-      else
+      #check if the the letter already exists in the guessed ar guessed string
+      elsif @guesses.include? guessed or @wrong_guesses.include? guessed
+        return false
+        
+      elsif !@wrong_guesses.include? guessed
        
         #If guessed char is not in string add to @wrong_guesses list
         @wrong_guesses += guessed
         return true
-    end
     
+    end
+   
   end
   # You can test it by running $ bundle exec irb -I. -r app.rb
   # And then in the irb: irb(main):001:0> HangpersonGame.get_random_word
