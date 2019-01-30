@@ -7,7 +7,7 @@ class HangpersonGame
 
   # def initialize()
   # end
-  attr_accessor :word, :guesses, :wrong_guesses, :win
+  attr_accessor :word, :guesses, :wrong_guesses
   def initialize(word)
     @word = word
     @guesses = ''
@@ -66,6 +66,13 @@ class HangpersonGame
     if word_with_guesses() == @word
       
      return  :win
+    # get the length of the wrong guesses string
+    # if greater or equal to 7 return the :lose symbol
+    elsif @wrong_guesses.length >= 7
+      return :lose
+      # If neither are true return the :play symbol
+    else 
+      return :play
     end
   end
   
