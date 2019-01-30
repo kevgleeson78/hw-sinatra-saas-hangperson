@@ -7,7 +7,7 @@ class HangpersonGame
 
   # def initialize()
   # end
-  attr_accessor :word, :guesses, :wrong_guesses
+  attr_accessor :word, :guesses, :wrong_guesses, :win
   def initialize(word)
     @word = word
     @guesses = ''
@@ -16,17 +16,18 @@ class HangpersonGame
   #Take a char as input to method
   def guess(guessed)
      # Convert gussed to case insensitve
-    guessed.downcase!
+   
     #Check for invalid input 
     # of empty string using '' for comparison
     # Count the characters from the input of a-z and A-Z
-    # Teh result is 0 if there are non alphabet characters in the input.
-    if guessed == '' or guessed.count("a-zA-Z") <= 0
+    # The result is 0 if there are non alphabet characters in the input.
+    # guessed.nil? to check for nill value.
+    if   guessed == '' or  guessed.nil? or guessed.count("a-zA-Z") <= 0 
       #return error
       raise ArgumentError
     end
     
-   
+    guessed.downcase!
     # Check if the guessed char is in the word string
     #And the character is not already in the guesses list
     if @word.include? guessed and !@guesses.include? guessed 
@@ -45,8 +46,29 @@ class HangpersonGame
         return true
     
     end
-   
+  
   end
+  
+  ## Word with guesses method
+  # Regex used to capture the guesses string and place the guessed letters 
+  # into the new string from teh secret word using gsub. The '-' symblo
+  # is then placed where the characters have not been guessed.
+  def word_with_guesses()
+	   @word.gsub(/[^ #{@guesses}]/, '-')
+  end
+  
+  # Method to check if the game is over with winning or
+  # loosing conditions
+  def check_win_or_lose()
+    #  Get the result from the word_with_guesses method to campare with the
+    # secret word.
+    # Returns the win symbol if true.
+    if word_with_guesses() == @word
+      
+     return  :win
+    end
+  end
+  
   # You can test it by running $ bundle exec irb -I. -r app.rb
   # And then in the irb: irb(main):001:0> HangpersonGame.get_random_word
   #  => "cooking"   <-- some random word
