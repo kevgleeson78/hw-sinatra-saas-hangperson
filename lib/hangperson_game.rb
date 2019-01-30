@@ -17,6 +17,8 @@ class HangpersonGame
   def guess(guessed)
     
     
+    # Convert gussed to case insensitve
+    guessed.downcase!
     # Check if the guessed char is in the word string
     #And the character is not already in the guesses list
     if @word.include? guessed and !@guesses.include? guessed 
@@ -27,7 +29,7 @@ class HangpersonGame
       #check if the the letter already exists in the guessed ar guessed string
       elsif @guesses.include? guessed or @wrong_guesses.include? guessed
         return false
-        
+      # condition to check if the char is not in the wrong_guesses list
       elsif !@wrong_guesses.include? guessed
        
         #If guessed char is not in string add to @wrong_guesses list
