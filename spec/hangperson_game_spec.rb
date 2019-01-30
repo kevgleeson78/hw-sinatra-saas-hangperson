@@ -46,12 +46,12 @@ describe HangpersonGame do
         expect(@valid).not_to be false
       end
     end
-    context 'same letter repeatedly', :pending => true do
+    context 'same letter repeatedly' do
       before :each do
         @game = HangpersonGame.new('garply')
         guess_several_letters(@game, 'aq')
       end
-      it 'does not change correct guess list', :pending => true do
+      it 'does not change correct guess list' do
         @game.guess('a')
         expect(@game.guesses).to eq('a')
       end

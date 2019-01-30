@@ -16,18 +16,20 @@ class HangpersonGame
   #Take a char as input to method
   def guess(guessed)
     
+	
     # Check if the guessed char is in the word string
     #And the character is not already in the guesses list
-    if @word.include? guessed ##&& !@guesses.include?(guessed) 
+    if @word.include? guessed and !@guesses.include? guessed
+    
       # Add the guessed char to the guesses list 
       @guesses += guessed
       return true
-    end
-      # Ignore if the guessed character is already in the wrong_guessed list
-    if  !@wrong_guesses.include?(guessed)
-      #If guessed char is not in string add to @wrong_guesses list
-      @wrong_guesses += guessed
-    
+      
+      else
+       
+        #If guessed char is not in string add to @wrong_guesses list
+        @wrong_guesses += guessed
+        return true
     end
     
   end
