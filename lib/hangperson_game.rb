@@ -13,7 +13,18 @@ class HangpersonGame
     @guesses = ''
     @wrong_guesses = ''
   end
-
+  #Take a char as input to method
+  def guess(guessed)
+    #Loop over each char in word string
+     @word.each_char do |x|
+       # Check if the guessed char is in the word string
+      if guessed == x
+        # Add the guessed char to the guesses list
+          @guesses += guessed
+      end
+    end
+  
+  end
   # You can test it by running $ bundle exec irb -I. -r app.rb
   # And then in the irb: irb(main):001:0> HangpersonGame.get_random_word
   #  => "cooking"   <-- some random word
