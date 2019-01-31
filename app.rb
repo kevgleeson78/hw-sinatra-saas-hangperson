@@ -76,14 +76,14 @@ end
   
   get '/win' do
     ### YOUR CODE HERE ###
-     flash[:message] = "You Win!"
      
-   # erb :win # You may change/remove this line
+     
+    erb :win # You may change/remove this line
   end
   
   get '/lose' do
     ### YOUR CODE HERE ###
-    flash[:message] = "Sorry, you lose!"
+    
     
     erb :lose # You may change/remove this line
   end
