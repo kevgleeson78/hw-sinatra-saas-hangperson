@@ -70,6 +70,7 @@ end
       redirect '/lose'
     
     end
+    
     erb :show # You may change/remove this line
   end
   
