@@ -35,7 +35,7 @@ class HangpersonGame
       # Add the guessed char to the guesses list 
       @guesses += guessed
       return true
-      #check if the the letter already exists in the guessed ar guessed string
+      #check if the the letter already exists in the guessed string
       elsif @guesses.include? guessed or @wrong_guesses.include? guessed
         return false
       # condition to check if the char is not in the wrong_guesses list
