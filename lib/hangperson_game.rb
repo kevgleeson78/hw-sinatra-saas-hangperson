@@ -13,6 +13,8 @@ class HangpersonGame
     @guesses = ''
     @wrong_guesses = ''
   end
+  
+  
   #Take a char as input to method
   def guess(guessed)
      # Convert gussed to case insensitve
