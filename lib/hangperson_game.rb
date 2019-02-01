@@ -17,8 +17,8 @@ class HangpersonGame
   
   #Take a char as input to method
   def guess(guessed)
-     # Convert gussed to case insensitve
-   
+    # Convert gussed to case insensitve
+    guessed = guessed.downcase!
     #Check for invalid input 
     # of empty string using '' for comparison
     # Count the characters from the input of a-z and A-Z
@@ -27,10 +27,10 @@ class HangpersonGame
     if   guessed == '' or  guessed.nil? or guessed.count("a-zA-Z") <= 0 
        
       raise ArgumentError
-        return  :invalid
+        
     end
     
-    guessed.downcase!
+    
     # Check if the guessed char is in the word string
     #And the character is not already in the guesses list
     if @word.include? guessed and !@guesses.include? guessed 

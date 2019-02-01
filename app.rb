@@ -75,8 +75,8 @@ end
       redirect '/lose'
     
     end
-    @wrong_guesses = @game.wrong_guesses
-	  @word_with_guesses = @game.word_with_guesses
+    @wrong_guesses = @game.wrong_guesses()
+	  @word_with_guesses = @game.word_with_guesses()
     erb :show # You may change/remove this line
   end
   # Stop cheating by entering win to the url
