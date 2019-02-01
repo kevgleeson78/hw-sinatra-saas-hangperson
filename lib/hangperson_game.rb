@@ -25,8 +25,9 @@ class HangpersonGame
     # The result is 0 if there are non alphabet characters in the input.
     # guessed.nil? to check for nill value.
     if   guessed == '' or  guessed.nil? or guessed.count("a-zA-Z") <= 0 
-      #return error
+       
       raise ArgumentError
+        return  :invalid
     end
     
     guessed.downcase!

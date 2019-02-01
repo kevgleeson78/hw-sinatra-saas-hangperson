@@ -48,8 +48,12 @@ class HangpersonApp < Sinatra::Base
     flash[:message]= "You have already used that letter."
     
     end
-    # Capture the argument error for empty string or non alpha characters
-    rescue ArgumentError
+  
+    
+         
+        
+    
+      rescue ArgumentError
       flash[:message] = "Invalid guess."
   end
   redirect '/show'
@@ -61,8 +65,7 @@ end
   # wrong_guesses and word_with_guesses from @game.
   get '/show' do
     ### YOUR CODE HERE ###
-     flash[:wrong_guesses] = @game.wrong_guesses
-    flash[:word_with_guesses] = @game.word_with_guesses
+     
     if(@game.check_win_or_lose() == :win)
      
       redirect '/win'
@@ -72,7 +75,8 @@ end
       redirect '/lose'
     
     end
-    
+    @wrong_guesses = @game.wrong_guesses
+	  @word_with_guesses = @game.word_with_guesses
     erb :show # You may change/remove this line
   end
   # Stop cheating by entering win to the url
