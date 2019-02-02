@@ -66,23 +66,23 @@ end
   get '/show' do
     ### YOUR CODE HERE ###
      
-    if(@game.check_win_or_lose() == :win)
+    if(@game.check_win_or_lose == :win)
      
       redirect '/win'
       
     end
-    if(@game.check_win_or_lose()== :lose)
+    if(@game.check_win_or_lose == :lose)
       redirect '/lose'
     
     end
-    @wrong_guesses = @game.wrong_guesses()
-	  @word_with_guesses = @game.word_with_guesses()
+   # wrong_guesses = @game.wrong_guesses
+	 # word_with_guesses = @game.word_with_guesses
     erb :show # You may change/remove this line
   end
   # Stop cheating by entering win to the url
   get '/win' do
     ### YOUR CODE HERE ###
-     if(@game.check_win_or_lose()== :play)
+     if(@game.check_win_or_lose == :play)
       redirect '/show'
       else
         erb :win # You may change/remove this line
@@ -93,7 +93,7 @@ end
   # Stop cheating by entering lose to the url
   get '/lose' do
     ### YOUR CODE HERE ###
-     if(@game.check_win_or_lose()== :play)
+     if(@game.check_win_or_lose == :play)
       redirect '/show'
       else
         erb :lose # You may change/remove this line

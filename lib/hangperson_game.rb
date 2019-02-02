@@ -17,8 +17,7 @@ class HangpersonGame
   
   #Take a char as input to method
   def guess(guessed)
-    # Convert gussed to case insensitve
-    guessed = guessed.downcase!
+    
     #Check for invalid input 
     # of empty string using '' for comparison
     # Count the characters from the input of a-z and A-Z
@@ -30,7 +29,8 @@ class HangpersonGame
         
     end
     
-    
+    # Convert gussed to case insensitve
+      guessed.downcase!
     # Check if the guessed char is in the word string
     #And the character is not already in the guesses list
     if @word.include? guessed and !@guesses.include? guessed 
@@ -66,7 +66,7 @@ class HangpersonGame
     #  Get the result from the word_with_guesses method to campare with the
     # secret word.
     # Returns the win symbol if true.
-    if word_with_guesses() == @word
+    if word_with_guesses == @word
       
      return  :win
     # get the length of the wrong guesses string
